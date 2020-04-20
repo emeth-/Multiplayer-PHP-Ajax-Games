@@ -1,0 +1,955 @@
+/**** GENERAL ****/
+   html,body{
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+   }
+   
+   body {
+      margin: 0px;
+      padding: 0px;
+      background-color: #e3eaf3;
+      background-image: url(logo.png);
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      width: 100%;
+   }
+   
+   div {
+      margin: 0px;
+      padding: 0px;
+   }
+   
+   a { color: #333; }
+   
+   input, textarea {
+      margin: 2px 4px 2px 4px;
+      border: 1px solid #dddcd8;
+      font-size: 12px;
+   }
+   
+   .rcvdMessages, input {
+      font-family: Tahoma, Verdana, Arial, sans-serif;
+   }
+   
+   .rcvdMessages {
+      display: block;
+      position: absolute;
+      left: 5px;
+      right: 10px;
+      margin-top: 37px;
+      padding-top: 2px;
+      padding-left: 2px;
+      border-width: 1px;
+      border-style: solid;
+      border-color: #bfbcb8 #e0dcd8 #e0dcd8 #bfbcb8;
+      background-color: #fff;
+      overflow: auto;
+      font-size: 11px;
+      text-align: left;
+   }
+   
+   .rcvdMessages a {
+      color: #5c78cb;
+   }
+   
+   .inputText {
+      position: absolute;
+      left: 5px;
+      right: 10px;
+      margin-top: 5px;
+      height: 50px;
+      border: 1px solid #bfbcb8;
+      padding: 3px;
+      font-family: Tahoma, sans-serif;
+   }
+   
+   .userToolbar {
+      position: absolute;
+      left: 5px;
+      margin-top: 3px;
+      height: 32px;
+   }
+   
+   .imToolbar {
+      position: absolute;
+      left: 5px;
+      right: 10px;
+      margin-top: 5px;
+      height: 16px;
+   }
+   
+   .toolbarButton {
+      cursor: pointer;
+   }
+
+   img.buddyIcon {
+      max-width: 50px;
+      max-height: 50px;
+      _width: 50px;
+      _height: 50px;
+      position: absolute;
+      right: 10px;
+      z-index: 800;
+      margin-top: 40px;
+   }
+   
+   .toolbarSpacer img {
+      border-right: 2px solid #bfbcb8;
+   }
+   
+   .chatUserList {
+      position: absolute;
+      display: block;
+      width: 150px;
+      margin-top: 5px;
+      background-color: #fff;
+      border-width: 1px;
+      border-style: solid;
+      border-color: #bfbcb8 #e0dcd8 #e0dcd8 #bfbcb8;
+      text-align: left;
+      overflow-x: hidden;
+      overflow-y: auto;
+   }
+   
+   .errorMsg {
+      display: block;
+      width: 100%;
+      padding: 5px 0 10px 0;
+      color: #ff0000;
+      font-weight: bold;
+      text-align: center;
+   }
+   
+   
+   .userA { color: #8f3838; }
+   
+   .userB { color: #30407b; }
+   
+   .imHistory { color: #aaa; }
+   
+   .imError {
+      color: #ff0000;
+      font-weight: 700;
+   }
+   
+   ul.sortable li { position: relative; }
+   
+   ul.box {
+      list-style-type: none;
+      padding: 0px;
+      margin: 0px;
+      width: 100%;
+      cursor: default;
+   }
+   
+   ul.box li {
+      color: #333;
+      vertical-align: middle;
+      font-family: Tahoma, Arial, sans-serif;
+      font-size: 12px;
+      padding: 5px 3px 1px 3px;
+      margin: 0;
+   }
+   
+   ul.group {
+      margin-left: 0px;
+      padding-left: 0px;
+   }
+   
+   ul.group li {
+      padding: 0;
+      margin: 0;
+   }
+   
+   div#blContainer {
+      display: block;
+      position: absolute;
+      left: 5px;
+      right: 8px;
+      margin-top: 66px;
+      background-color: #fff;
+      border-width: 1px;
+      border-style: solid;
+      border-color: #bfbcb8 #e0dcd8 #e0dcd8 #bfbcb8;
+      text-align: left;
+      overflow-x: hidden;
+      overflow-y: auto;
+   }
+   
+   div#blTopToolbar {
+      display: block;
+      position: absolute;
+      left: 5px;
+      right: 8px;
+      height: 56px;
+      margin-top: 5px;
+      text-align: left;
+      overflow: hidden;
+   }
+   
+   div#blBottomToolbar {
+      display: block;
+      position: absolute;
+      left: 5px;
+      right: 8px;
+      height: 41px;
+      margin-top: 5px;
+      text-align: right;
+      overflow: hidden;
+   }
+   
+   div#statusSettings {
+      display: block;
+      margin-top: 2px;
+   }
+   
+   a.setFontLink {
+      position: absolute;
+      left: 105px;
+      display: block;
+      -moz-outline-style: none;
+      text-decoration: none;
+      width: 85px;
+      height: 14px;
+      font-family: Tahoma, Arial, sans-serif;
+      font-size: 10px;
+      vertical-align: middle;
+      background-color: #ebe6e1;
+      padding: 2px;
+      background-image: url(window/arrow.png);
+      background-position: center right;
+      background-repeat: no-repeat;
+      border: 1px solid #bfbcb8;
+      overflow: hidden;
+   }
+   
+   a.insertEmoticonLink {
+      position: absolute;
+      left: 284px;
+      display: block;
+      -moz-outline-style: none;
+      text-decoration: none;
+      width: 24px;
+      height: 14px;
+      font-family: Tahoma, Arial, sans-serif;
+      font-size: 10px;
+      vertical-align: middle;
+      background-color: #ebe6e1;
+      padding: 2px;
+      background-image: url(window/arrow.png);
+      background-position: center right;
+      background-repeat: no-repeat;
+      border: 1px solid #bfbcb8;
+      overflow: hidden;
+   }
+   
+   a.setFontSizeLink {
+      position: absolute;
+      left: 205px;
+      display: block;
+      -moz-outline-style: none;
+      text-decoration: none;
+      width: 24px;
+      height: 14px;
+      font-family: Tahoma, Arial, sans-serif;
+      font-size: 10px;
+      vertical-align: middle;
+      background-color: #ebe6e1;
+      padding: 2px;
+      background-image: url(window/arrow.png);
+      background-position: center right;
+      background-repeat: no-repeat;
+      border: 1px solid #bfbcb8;
+      overflow: hidden;
+   }
+   
+   a.setFontColorLink {
+      position: absolute;
+      left: 244px;
+      display: block;
+      -moz-outline-style: none;
+      text-decoration: none;
+      width: 24px;
+      font-family: Tahoma, Arial, sans-serif;
+      font-size: 10px;
+      vertical-align: middle;
+      background-color: #ebe6e1;
+      padding: 2px;
+      background-image: url(window/arrow.png);
+      background-position: center right;
+      background-repeat: no-repeat;
+      border: 1px solid #bfbcb8;
+      overflow: hidden;
+   }
+   
+   a#curStatus {
+      display: block;
+      -moz-outline-style: none;
+      text-decoration: none;
+      width: 165px;
+      height: 14px;
+      font-family: Tahoma, Arial, sans-serif;
+      font-size: 10px;
+      background-color: #ebe6e1;
+      padding: 2px;
+      background-image: url(window/arrow.png);
+      background-position: center right;
+      background-repeat: no-repeat;
+      border: 1px solid #ebe6e1;
+      overflow: hidden;
+   }
+   
+   a#curStatus:hover {
+      border: 1px solid #bfbcb8;
+   }
+   
+   div.itemList {
+      display: none;
+      position: absolute;
+      border: 1px solid #bfbcb8;
+      background-color: #ebe6e1;
+      z-index: 1000;
+   }
+   
+   div.itemList a {
+      padding: 1px 3px 1px 3px;
+      display: block;
+      font-family: Tahoma, Arial, sans-serif;
+      font-size: 10px;
+      background-color: #ebe6e1;
+      text-decoration: none;
+   }
+   
+   div.itemList a:hover {
+      background-color: #e1ebf7;
+   }
+   
+   div#statusList {
+      width: 165px;
+   }
+   
+   div#fontSizeList {
+      width: 28px;
+   }
+   
+   div#fontSizeList a {
+      width: 22px;
+   }
+   
+   div#fontsList {
+     width: 89px;
+     overflow: hidden;
+   }
+   
+   div#fontsList a {
+      width: 120px;
+   }
+   
+   input#customStatus {
+      position: absolute;
+      padding: 1px;
+      border: 1px solid #000;
+      margin: 0px;
+      font-size: 11px;
+      width: 114px;
+   }
+
+   div#divContext {
+      width: 96px;
+   }
+   
+   div#divContext a {
+      padding: 3px 0 3px 4px;
+   }
+
+   .listSelected, .listHover {
+      color: #000;
+   }
+   
+   .listNotSelected {
+      background-color: #fff;
+      color: #333;
+   }
+   
+   .listSelected {
+      background-color: #d0dae6;
+   }
+   
+   .listHover {
+      background-color: #e1ebf7;
+   }
+
+   div#newroom_room_list {
+      display: block;
+      overflow: auto;
+      width: 187px;
+      height: 165px;
+      border: 1px solid #000;
+      background-color: #fff;
+      cursor: default;
+      font-size: 11px;
+   }
+   
+   div#languageList {
+      position: absolute;
+      display: block;
+      font-family: Tahoma, Arial, sans-serif;
+      font-size: 11px;
+      color: #333;
+      width: 500px;
+      margin-left: -250px;
+      left: 50%;
+      bottom: 10px;
+      text-align: center;
+   }
+
+   .buddyicon {
+      list-style-type: none;
+      height: 30px;
+      clear: both;
+   }
+   .buddyicon img.blIcon {
+      float: right;
+      max-height: 25px;
+      max-width: 25px;
+      margin-top: 2.5px;
+      _height: 25px;
+      _width: 25px;
+   }
+
+   #changesettings_buttons .stdButton {
+      padding-left: 4px;
+      padding-right: 4px;
+      display: block;
+      clear: both;
+      margin: 3px auto 0px auto;
+      background: transparent;
+      width: 135px;
+   }
+
+   #changesettings_buttons .btnHover {
+      background: transparent;
+      text-decoration: underline;
+   }
+
+   #changesettings_buttons .btnDown {
+      background: transparent;
+   }
+
+   .userProfile {
+      padding: 10px;
+   }
+
+   .updateProfile {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+   }
+/**** END GENERAL ****/
+
+
+/**** WINDOWS ****/
+   .overlay_dialog {
+   	background-color: #666666;
+   	filter:alpha(opacity=60);
+   	-moz-opacity: 0.6;
+   	opacity: 0.6;
+   }
+   
+   .overlay___invisible__ {
+     background-color: #666666;
+   	filter:alpha(opacity=0);
+   	-moz-opacity: 0;
+   	opacity: 0;
+   }
+   
+   .dialog_nw {
+   	width: 9px;
+   	height: 23px;
+   	background: transparent url(window/top_left.gif) no-repeat 0 0;		
+   }
+   
+   .dialog_n {
+   	background: transparent url(window/top_mid.gif) repeat-x 0 0;	
+   	height: 23px;
+   }
+   
+   .dialog_ne {
+   	width: 9px;
+   	height: 23px;
+   	background: transparent url(window/top_right.gif) no-repeat 0 0;		
+   }
+   
+   .dialog_nw_inactive {
+   	width: 9px;
+   	height: 23px;
+   	background: transparent url(window/top_left_inactive.gif) no-repeat 0 0;		
+   }
+   
+   .dialog_n_inactive {
+   	background: transparent url(window/top_mid_inactive.gif) repeat-x 0 0;	
+   	height: 23px;
+   }
+   
+   .dialog_ne_inactive {
+   	width: 9px;
+   	height: 23px;
+   	background: transparent url(window/top_right_inactive.gif) no-repeat 0 0;		
+   }
+   
+   .dialog_e {
+   	width: 2px;
+   	background: transparent url(window/center_right.gif) repeat-y 0 0;	
+   }
+   
+   .dialog_w {
+   	width: 2px;
+   	background: transparent url(window/center_left.gif) repeat-y 0 0;		
+   }
+   
+   .dialog_sw {
+   	width: 9px;
+   	height: 19px;
+   	background: transparent url(window/bottom_left.gif) no-repeat 0 0;			
+   }
+   
+   .dialog_s {
+   	background: transparent url(window/bottom_mid.gif) repeat-x 0 0;		
+   	height: 19px;
+   }
+   
+   .dialog_se {
+   	width: 9px;
+   	height: 19px;
+   	background: transparent url(window/bottom_right.gif) no-repeat 0 0;			
+   }
+   
+   .dialog_sizer {
+   	width: 9px;
+   	height: 19px;
+   	background: transparent url(window/sizer.gif) no-repeat 0 0;	
+   	cursor:se-resize;	
+   }
+   
+   .dialog_close {
+   	width: 17px;
+   	height: 17px;
+   	background: transparent url(window/close.gif) no-repeat 0 0;			
+   	position:absolute;
+   	top:3px;
+   	right:8px;
+   	cursor:pointer;
+   	z-index:2000;
+   }
+   
+   .dialog_minimize {
+   	width: 17px;
+   	height: 17px;
+   	background: transparent url(window/minimize.gif) no-repeat 0 0;			
+   	position:absolute;
+   	top:3px;
+   	right:49px;
+   	cursor:pointer;
+   	z-index:2000;
+   }
+   
+   .dialog_detach {
+   	width: 17px;
+   	height: 17px;
+   	background: transparent url(window/detach.gif) no-repeat 0 0;			
+   	position:absolute;
+   	top:3px;
+   	right:70px;
+   	cursor:pointer;
+   	z-index:2000;
+   }
+   
+   .dialog_maximize {
+   	width: 17px;
+   	height: 17px;
+   	background: transparent url(window/maximize.gif) no-repeat 0 0;			
+   	position:absolute;
+   	top:3px;
+   	right:28px;
+   	cursor:pointer;
+   	z-index:2000;
+   }
+   
+   .dialog_close_inactive {
+   	width: 17px;
+   	height: 17px;
+   	background: transparent url(window/close_inactive.gif) no-repeat 0 0;			
+   	position:absolute;
+   	top:3px;
+   	right:8px;
+   	cursor:pointer;
+   	z-index:2000;
+   }
+   
+   .dialog_minimize_inactive {
+   	width: 17px;
+   	height: 17px;
+   	background: transparent url(window/minimize_inactive.gif) no-repeat 0 0;			
+   	position:absolute;
+   	top:3px;
+   	right:49px;
+   	cursor:pointer;
+   	z-index:2000;
+   }
+   
+   .dialog_detach_inactive {
+   	width: 17px;
+   	height: 17px;
+   	background: transparent url(window/detach_inactive.gif) no-repeat 0 0;			
+   	position:absolute;
+   	top:3px;
+   	right:70px;
+   	cursor:pointer;
+   	z-index:2000;
+   }
+   
+   .dialog_maximize_inactive {
+   	width: 17px;
+   	height: 17px;
+   	background: transparent url(window/maximize_inactive.gif) no-repeat 0 0;			
+   	position:absolute;
+   	top:3px;
+   	right:28px;
+   	cursor:pointer;
+   	z-index:2000;
+   }
+   
+   .dialog_title {
+   	float:left;
+   	height:14px;
+   	font-size:12px;
+   	text-align:center;
+   	width:100%;
+   	font-family: Tahoma, Arial, sans-serif;
+   	font-weight: bold;
+   	font-size: 11px;
+   	color:#ebe6e1;
+   }
+   
+   .dialog_content {
+   	overflow:hidden;
+   	color: #000;
+   	font-family: Tahoma, Arial, sans-serif;
+   	font-size: 10px;
+   	background-color:#ebe6e1;
+   	padding: 0;
+   }
+   
+   .top_draggable, .bottom_draggable {
+     cursor: default;
+   }
+   
+   .status_bar {
+     font-size:12px;
+   }
+   .status_bar input{
+     font-size:12px;
+   }
+   /* DO NOT CHANGE THESE VALUES*/
+   .dialog {
+   	display: block;
+   	position: absolute;
+   }
+   
+   .dialog table.table_window  { 
+     border-collapse: collapse; 
+     border-spacing: 0; 
+     width: 100%;
+     margin: 0px;
+     padding:0px;
+   }
+   
+   .dialog table.table_window td , .dialog table.table_window th { 
+     padding: 0; 
+   }
+   
+   .dialog .title_window {
+     -moz-user-select:none;
+   }
+   
+   .stdButton {
+      display: block;
+      float: left;
+      width: 95px;
+      height: 23px;
+      background-image: url(window/button_normal.png);
+      font-family: Tahoma, Verdana, Arial, sans-serif;
+      font-size: 12px;
+      text-decoration: none;
+      text-align: center;
+      padding-top: 5px;
+      color:#333;
+   }
+
+   input.stdButton {
+      padding-top: 0px;
+      padding-bottom: 5px;
+      height:30px;
+      margin:0px;
+   }
+   
+   .btnHover {
+      background-image: url(window/button_hover.png);
+   }
+   
+   .btnDown {
+      width: 93px;
+      height: 22px;
+      background-image: url(window/button_down.png);
+      padding-top: 6px;
+      padding-left: 2px;
+   }
+   
+   .dialog_label, .dialog_input, .dialog_error  {
+      padding: 10px;
+      color: #000;
+      text-align: right;
+      float: left; 
+      width: 150px;
+      font-size: 14px;
+      font-weight: bold;
+   }
+   
+   .dialog_long_label { 
+      padding: 10px;
+      color: #000;
+      text-align: center;
+      width: 100%;
+      font-size: 14px;
+      font-weight: bold;
+   }
+   
+   .dialog_links {
+      display: block;
+      font-size: 14px;
+      font-weight: bold;
+      color: #000;
+      padding: 10px;
+      text-align: center;
+      margin: 0px auto;
+   }
+   
+   .dialog_modal_title {
+     font-size: 18px;
+     color: #000;
+     margin-bottom: 15px;
+     width: 100%;
+     text-align: center;
+   }
+   
+   .dialog_input {
+      width: 150px;
+   }
+   
+   .dialog_error {
+      width: 100%;
+      text-align: center;
+      color: #F00;
+   }
+   
+   .dialog_input input {
+      width: 100%;
+      font-weight: normal;
+   }
+/**** END WINDOWS ****/
+
+/**** LOGIN SCREEN ****/
+   .modalFrame {
+      display: none;
+      position: absolute;
+      display: block;
+      width: 762px;
+      height: 529px;
+      margin: 0px auto;
+      padding-top: 140px;
+      text-align: center;
+      background-image: url(modal/background.png);
+      background-repeat: no-repeat;
+      cursor: default;
+   }
+   
+   .modalFrame input {
+      cursor: text;
+   }
+   
+   .modalFrame p {
+      font-family: Verdana, Tahoma, Arial, sans-serif;
+      font-size: 14px;
+      margin: 3px;
+   }
+   
+   .modalFrame .dialog_label{
+      padding-left: 190px;
+   }
+   
+   .modalFrame a {
+      cursor: default;
+   }
+   
+   div#loginDialog {
+      padding-top: 35px;
+   }
+   
+   div#forgotPassDialog {
+      padding-top: 60px;
+   }
+   
+   div#registerDialog {
+      margin-top: -15px;
+   }
+/**** END LOGIN SCREEN ****/
+
+
+/**** ALERT DIALOGS ****/
+   .overlay_alert {
+   	background-color: #85BBEF;
+   	filter:alpha(opacity=60);
+   	-moz-opacity: 0.6;
+   	opacity: 0.6;
+   	z-index: 2;
+   }
+   
+   .alert_nw {
+   	background: transparent url(alert/left-top.gif) no-repeat 0 0;			
+     width:10px;
+     height:25px;
+   }
+   
+   .alert_n {
+     background: transparent url(alert/top-middle.gif) repeat-x 0 0;			
+     height:25px;
+   }
+   
+   .alert_ne {
+     background: transparent url(alert/right-top.gif) no-repeat 0 0;			
+     width:10px;	  
+     height:25px;
+   }
+   
+   .alert_w {
+     background: transparent url(alert/frame-left.gif) repeat-y top left;			
+     width:7px;
+   }
+   
+   .alert_e {
+     background: transparent url(alert/frame-right.gif) repeat-y top right;			
+     width:7px;	  
+   }
+   
+   .alert_sw {
+     background: transparent url(alert/bottom-left-c.gif) no-repeat 0 0;			
+     width:7px;
+     height:7px;
+   }
+   
+   .alert_s {
+     background: transparent url(alert/bottom-middle.gif) repeat-x 0 0;			
+     height:7px;
+   }
+   
+   .alert_se, .alert_sizer  {
+     background: transparent url(alert/bottom-right-c.gif) no-repeat 0 0;			
+     width:7px;
+     height:7px;
+   }
+   
+   .alert_sizer {
+   	cursor:se-resize;	
+   }
+   
+   .alert_close {
+   	width: 23px;
+   	height: 23px;
+   	background: transparent url(alert/button-close-focus.gif) no-repeat 0 0;			
+   	position:absolute;
+   	top:0px;
+   	right:11px;
+   	cursor:pointer;
+   	z-index:1000;
+   }
+   
+   .alert_minimize {
+   	width: 23px;
+   	height: 23px;
+   	background: transparent url(alert/button-min-focus.gif) no-repeat 0 0;			
+   	position:absolute;
+   	top:0px;
+   	right:55px;
+   	cursor:pointer;
+   	z-index:1000;
+   }
+   
+   .alert_maximize {
+   	width: 23px;
+   	height: 23px;
+   	background: transparent url(alert/button-max-focus.gif) no-repeat 0 0;			
+   	position:absolute;
+   	top:0px;
+   	right:33px;
+   	cursor:pointer;
+   	z-index:1000;
+   }
+   
+   .alert_title {
+   	float:left;
+   	height:14px;
+   	font-size:14px;
+   	text-align:center;
+   	margin-top:2px;
+   	width:100%;
+   	color:#123456;
+   }
+   
+   .alert_content {
+   	overflow:hidden;
+   	color: #000;
+   	font-family: Tahoma, Arial, sans-serif;
+   	font-size: 10px;
+   	background:#FDFDFD;
+   }
+   
+   .alert_window {
+      overflow:hidden;
+   	border:1px solid #F00;	
+   	background: #FFF;
+   	padding:20px;
+   	margin-left:auto;
+   	margin-right:auto;
+   	width:390px;
+   	z-index: 1;
+   }
+   
+   .alert_message {
+   	font-size:12px;
+   	text-align:center;
+   	width:100%;
+   	padding-bottom:10px;
+   	overflow:hidden;
+   }
+   
+   .alert_buttons {
+   	text-align:center;
+   	width:100%;
+   }
+   
+   .alert_buttons input {
+   	width:20%;
+   	margin:10px;
+   }
+   
+   .alert_progress {
+   	float:left;
+   	margin:auto;
+   	text-align:center;
+   	width:100%;
+   	height:16px;
+   	background: #FFF url(alert/progress.gif) no-repeat center center
+   }
+/**** END ALERT DIALOGS ****/

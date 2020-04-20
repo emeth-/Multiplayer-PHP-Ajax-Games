@@ -1,0 +1,211 @@
+body {
+background:#DDD;
+font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+font-size: 12px;
+margin: 0px;
+padding: 0px;
+padding-bottom:20px;
+text-align: left; 
+}
+
+a {
+color: #1b7bdd;
+text-decoration: none;
+}
+
+a:hover {
+color: #2fa600;
+text-decoration: underline;
+}
+
+h1 {
+font-size: 30px; }
+
+h2 {
+width:100%;
+background:#3B5998;	
+font-size: 24px;
+color: #FFF;
+padding:10px;
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+}
+
+h3 {
+width:100%;
+font-size: 16px;
+color: #777;
+margin-left:10px;
+}
+
+#header {
+background: #D7E3B5;
+display: block;
+overflow: hidden;
+color: white;
+text-decoration: none;
+}
+
+#header a {
+color: white;
+}
+
+#header .header_content {
+width: 850px;
+margin: 0px auto;
+padding: 5px 20px 0px;
+overflow: hidden;
+background: #6e7e38;
+border-bottom: solid 6px #acbd7d;
+position: relative;
+}
+
+#header a.title {
+float: left;
+font-size: 24px;
+color:#000;
+text-decoration: none;
+margin-top: 3px;
+}
+
+#header .account {
+float: right;
+font-size: 14px;
+position: absolute;
+bottom: 12px;
+right: 40px;
+}
+
+#header a:hover {
+color: #cccccc;
+}
+
+#header-profilepic {
+margin: 0px 0px 0px 5px;
+border: solid 1px #7e8f45;
+float:right;
+}
+
+#header-account {
+clear: none;
+text-align: right;
+padding: 5px 5px 0px 10px;
+font-size: 18px;
+color:#000;
+}
+
+#header-account .account_links {
+padding: 4px 0px;
+color: #3B5998;
+}
+
+#header-account .account_links a {
+color: #3B5998;
+}
+
+.content {
+width:850px;
+background: #FFF;
+padding:20px;	
+margin-left:auto;
+margin-right:auto;
+overflow: hidden;
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+}
+
+.logo {
+margin-right:20px;
+float:left;
+}
+
+.footer {
+width:820px;
+margin-top:20px;
+font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+font-size:20px;
+text-align:right;
+overflow:hidden;
+}
+
+.fbconnect_title_wrapper {
+width:820px;
+margin-bottom:20px;
+float:left;
+}
+
+.fbconnect_friend_wrapper {
+width:130px;
+height:100px;
+background:#EEE;
+text-align:center;
+padding:10px;
+margin:5px;
+float:left;
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+}
+
+.fbconnect_status {
+color: #3B5998;
+font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+font-size:20px;
+margin:0px 10px 0px 10px;
+}
+
+#fbconnect_textarea, #fbconnect_input {
+font:bold 16px georgia,verdana,"Times New Roman",times;
+background:#EEE;
+color:#333;
+border:2px solid #AAA;
+padding:10px;
+margin:10px;
+}
+
+.fbconnect_button {
+font:22px georgia,verdana,"Times New Roman",times;
+margin:10px;
+float:left;
+}
+
+.fbconnect_welcome {
+font:22px georgia,verdana,"Times New Roman",times;
+color:#333;
+width:820px;
+margin:10px;
+float:left;
+
+}
+
+.fbconnect_login {
+font:22px georgia,verdana,"Times New Roman",times;
+color:#333;
+width:820px;
+margin:10px;
+float:left;
+}
+
+#fbconnect_result {
+font:18px georgia,verdana,"Times New Roman",times;
+color:#3B5998;
+width:820px;
+margin-left:10px;
+float:left;
+}
+
+#fbconnect_status_result {
+font:18px georgia,verdana,"Times New Roman",times;
+color:#3B5998;
+width:820px;
+float:left;
+}
+
+.fbconnect_text {
+font:18px georgia,verdana,"Times New Roman",times;
+color:#333;
+width:820px;
+margin-top:20px;
+margin-left:10px;
+float:left;
+}
+

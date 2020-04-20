@@ -1,0 +1,16 @@
+#################################
+#          ajax im 3.4          #
+#    AJAX Instant Messenger     #
+#   Copyright (c) 2006-2008     #
+#    http://www.ajaxim.com/     #
+#   Do not remove this notice   #
+#################################
+
+# This is a sample php.ini file
+# If you are having problems with file uploads
+# try renaming this file to 'php.ini' and it might
+# help, assuming your host did not disable php.ini files.
+
+file_uploads = On
+upload_max_filesize = 10M
+post_max_size = 10M

@@ -1,0 +1,279 @@
+body
+{
+padding:0px;
+margin:0px;
+font-family:Arial, Helvetica, sans-serif;
+background-color:#000000;
+}
+.mainContainer
+{
+width:720px;
+margin-left:10%;
+margin-right:10%;
+height:600px;
+}
+.bannerSpot
+{
+background-image:url(http://seanybob.net/gpt/images/bannern.jpg);
+background-repeat:no-repeat;
+height:187px;
+width:720px;
+}
+.columnLeft1
+{
+float:left;
+padding-left:10px;
+padding-top:5px;
+width:225px;
+height:225px;
+}
+.columnRight1
+{
+float:right;
+}
+.bodyArea
+{
+width:477px;
+background-image:url(http://seanybob.net/gpt/images/whitebodybg.gif);
+
+background-repeat:repeat-y;
+margin-right:7px;
+}
+.grayArea
+{
+text-align:center;
+font-size:11px;
+width:477px;
+background-image:url(http://seanybob.net/gpt/images/graybodybg.gif);
+height:14px;
+background-repeat:repeat-y;
+margin-right:7px;
+}
+.bodyBottom
+{
+width:477px;
+background-image:url(http://seanybob.net/gpt/images/bgbottom.gif);
+height:4px;
+background-repeat:no-repeat;
+margin-right:7px;
+}
+.heading
+{
+font-weight: bold;
+text-align:center;
+padding:5px;
+}
+.welcome a
+{
+font-size:12px;
+color:#FF0000;
+text-decoration:none;
+}
+.welcome a:hover
+{
+text-decoration:underline;
+}
+.loginFields
+{
+margin-left:35px;
+}
+.r1
+{
+font-size:12px;
+}
+.middleOfBox
+{
+width:188px;
+height:23px;
+background-image:url(http://seanybob.net/gpt/images/tlmidbluebox2.gif);
+background-repeat:repeat-x;
+}
+.middleofBoxFont
+{
+color:#FFFFFF;
+font-size:11px;
+padding-top:5px;
+padding-left:5px;
+}
+.leftOfBox
+{
+float:left;
+width:5px;
+height:23px;
+background-image:url(http://seanybob.net/gpt/images/tlbluebox2.gif);
+background-repeat:no-repeat;
+}
+.rightOfBox
+{
+float:right;
+width:5px;
+height:23px;
+background-image:url(http://seanybob.net/gpt/images/trbluebox2.gif);
+background-repeat:no-repeat;
+}
+.middleOfBlueBox
+{
+background-image:url(http://seanybob.net/gpt/images/midofblue2.gif);
+background-repeat:repeat-y;
+width:188px;
+}
+.midstStyle1
+{
+color:#FFFFFF;
+font-size:12px;
+padding-left:5px;
+}
+.bottomOfBlueBox
+{
+background-image:url(http://seanybob.net/gpt/images/bottom2.gif);
+background-repeat:no-repeat;
+height:4px;
+width:188px;
+margin-bottom:10px;
+}
+.menubg
+{
+background-image:url(http://seanybob.net/gpt/images/menubutton.jpg);
+background-repeat:repeat-x;
+width:178px;
+height:26px;
+}
+.menubgb
+{
+background-image:url(http://seanybob.net/gpt/images/menubuttonb.jpg);
+background-repeat:no-repeat;
+width:2px;
+display: inline;
+height:26px;
+}
+
+.menu a { 
+font-size:14px;
+color:white;
+font-weight: bold;
+display: inline;
+text-align:left;
+text-decoration:none;
+}
+.mainmenu { 
+text-align:left;
+padding-left:5px;
+}
+.smainmenu { 
+text-align:left;
+padding-left:5px;
+}
+.topmenu a { border:1px solid #000; 
+font-size:12px;
+background-color:#062B48;
+color:white;
+font-family: arial;
+padding:3px;
+text-align:center;
+display: block;
+text-decoration:none;
+}
+
+table,tr,td { 
+font-family:helvetica, arial, geneva, sans-serif;
+font-size: 12px; 
+}
+textarea { 
+font-family:helvetica, arial, geneva, sans-serif;
+font-size:12px;color: black; 
+}
+.table {
+background-color:#000000;
+}
+.table2 {
+background-color:#000000;
+}
+.table3 {
+background-color:#000000;
+}
+.table td {
+background-color:#FFFFFF;
+height:22px;
+}
+.table2 td {
+background-color:#FFFFFF;
+border:1px solid #000;
+height:22px;
+}
+.table3 td {
+background-color:#CCCCCC;
+}
+td .alt {
+background-color:#EEEEEE;
+height:22px;
+}
+.table th {
+font-weight: bold;
+background-color: #1E3E57;
+color:white;
+}
+.table2 th {
+font-weight: bold;
+background-color: #1E3E57;
+color:white;
+}
+
+.table td {
+background-color: #062B46;
+color:white;
+}
+.table2 td {
+background-color: #062B46;
+color:white;
+}
+.table td a {
+color:white;
+}
+.table th a {
+color:white;
+}
+.table2 td a {
+color:white;
+}
+.table2 th a {
+color:white;
+}
+
+
+a:visited,a:active,a:hover,a:link { text-decoration: none; }
+
+
+.topOfBut
+{
+width:101px;
+height:2px;
+background-image:url(http://seanybob.net/gpt/images/tbut.jpg);
+background-repeat:no-repeat;
+margin: 0px;
+padding: 0px;
+}
+.middleOfBlueBut
+{
+background-image:url(http://seanybob.net/gpt/images/mbut.jpg);
+background-repeat:repeat-y;
+width:101px;
+margin: 0px;
+padding: 0px;
+}
+.midstStyle1but
+{
+color:white;
+font-family: arial;
+text-align:center;
+display: block;
+text-decoration:none;
+color:#FFFFFF;
+font-size:12px;
+}
+.bottomOfBlueBut
+{
+background-image:url(http://seanybob.net/gpt/images/bbut.jpg);
+background-repeat:no-repeat;
+height:2px;
+width:101px;
+}

@@ -1,0 +1,1 @@
+[30-Jul-2010 13:55:59] PHP Warning:  fileperms() [<a href='function.fileperms'>function.fileperms</a>]: stat failed for ./buddyicons/ in /home/seany4/public_html/mrwq/im/install.php on line 214

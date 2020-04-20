@@ -1,0 +1,16 @@
+///////////////////////////////////
+//          ajax im 3.4          //
+//    AJAX Instant Messenger     //
+//   Copyright (c) 2006-2008     //
+//    http://www.ajaxim.com/     //
+//   Do not remove this notice   //
+///////////////////////////////////
+
+The is_online.php script allows you to display a users status as an image. It is very simple to use.
+
+To use:
+1. Upload the is_online.php script and accompanying images folder to your server.
+2. To display a user's status, insert this line anywhere:
+   <img src="[pathtoscript]/is_online.php?user=[username]" />
+   
+   Replace [pathtoscript] with the path to the script and [username] with the username you want to display the status of.

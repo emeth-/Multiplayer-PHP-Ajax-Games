@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title></title>
+<script src="js/prototype.js" type="text/javascript"></script>
+<script src="js/effects.js" type="text/javascript"></script>
+<script src="js/window.js" type="text/javascript"></script>
+<script src="js/sm2.js" type="text/javascript"></script>
+<script src="js/utils.js" type="text/javascript"></script>
+<script src="js/config.js" type="text/javascript"></script>
+
+<script src="js/system.js" type="text/javascript"></script>
+<script src="js/dialogs.js" type="text/javascript"></script>
+<script src="js/buddylist.js" type="text/javascript"></script>
+<script src="js/status.js" type="text/javascript"></script>
+<script src="js/profile.js" type="text/javascript"></script>
+<script src="js/im.basic.js" type="text/javascript"></script>
+<script src="js/im.js" type="text/javascript"></script>
+<script src="js/chat.js" type="text/javascript"></script>
+<script src="js/languages.js" type="text/javascript"></script>
+<script src="js/context.js" type="text/javascript"></script>
+<script src="js/buttonctl.js" type="text/javascript"></script>
+<script src="js/browser.js" type="text/javascript"></script>
+
+<script src="js/ajax_im.js" type="text/javascript"></script>
+</head>
+
+<body>
+<div id="modal" class="modalFrame" style="display:none;">
+   <div id="loginDialog">
+      <p><span class="dialog_modal_title lang-signOn"></span></p>
+
+      <p><span id="login_error_msg" class="dialog_error" style="display:none">&nbsp;</span></p>
+
+      <p><span class="dialog_label lang-username langinsert-pre">:</span> <span class="dialog_input"><input type="text" id="username" onkeypress="System.keyHandler(event, System.login);" /></span></p>
+      <div style="clear:both"></div>
+      <p><span class="dialog_label lang-password langinsert-pre">:</span> <span class="dialog_input"><input type="password" id="password" onfoucs="this.select();" onkeypress="System.keyHandler(event, System.login);" /></span></p>
+      <div style="clear:both"></div>
+      <p>
+         <span id="login_dialog_links" class="dialog_links" style="width:285px;" onselectstart="return false;" onmousedown="return false;">
+            <a href="#" class="stdButton lang-signOn" id="signon_button" onclick="System.login();return false;" onmouseover="ButtonCtl.hover(this);" onmousedown="ButtonCtl.down(this);" onmouseup="ButtonCtl.normal(this);" onmouseout="ButtonCtl.normal(this);"></a>
+            <a href="#" class="stdButton lang-register registerObject" onclick="Dialogs.register();return false;" onmouseover="ButtonCtl.hover(this);" onmousedown="ButtonCtl.down(this);" onmouseup="ButtonCtl.normal(this);" onmouseout="ButtonCtl.normal(this);"></a>
+            <a href="#" class="stdButton lang-forgotPassword langinsert-pre" onclick="Dialogs.forgotPass();return false;" onmouseover="ButtonCtl.hover(this);" onmousedown="ButtonCtl.down(this);" onmouseup="ButtonCtl.normal(this);" onmouseout="ButtonCtl.normal(this);"> </a>
+         </span>
+      </p>
+      <div style="clear:both"></div>
+   </div>
+   
+   <div id="registerDialog" class="registerObject" style="display:none;">
+      <p><span class="dialog_modal_title lang-register"></span></p>
+      <div style="clear:both"></div>
+      <p><span id="register_error_msg" class="dialog_error" style="display:none">&nbsp;</span></p>
+      <div style="clear:both"></div>
+      <p><span class="dialog_label lang-username langinsert-pre">:</span> <span class="dialog_input"><input type="text" id="newusername" onkeypress="System.keyHandler(event, System.register);" /></span></p>
+      <div style="clear:both"></div>
+      <p><span class="dialog_label lang-password langinsert-pre">:</span> <span class="dialog_input"><input type="password" id="newpassword" onkeypress="System.keyHandler(event, System.register);" /></span></p>
+      <div style="clear:both"></div>
+      <p><span class="dialog_label lang-confirm langinsert-pre">:</span> <span class="dialog_input"><input type="password" id="newpassword2" onkeypress="System.keyHandler(event, System.register);" /></span></p>
+      <div style="clear:both"></div>
+      <p><span class="dialog_label lang-email langinsert-pre">:</span> <span class="dialog_input"><input type="text" id="newemail" onkeypress="System.keyHandler(event, System.register);" /></span></p>
+      <div style="clear:both"></div>
+      <p>
+         <span class="dialog_links" style="width:190px;" onselectstart="return false;" onmousedown="return false;">
+            <a href="#" class="stdButton lang-register" id="register_button" onclick="System.register();return false;" onmouseover="ButtonCtl.hover(this);" onmousedown="ButtonCtl.down(this);" onmouseup="ButtonCtl.normal(this);" onmouseout="ButtonCtl.normal(this);"></a>
+            <a href="#" class="stdButton lang-cancel" onclick="Dialogs.login();return false;" onmouseover="ButtonCtl.hover(this);" onmousedown="ButtonCtl.down(this);" onmouseup="ButtonCtl.normal(this);" onmouseout="ButtonCtl.normal(this);"></a>
+         </span>
+      </p>
+      <div style="clear:both"></div>
+   </div>
+   
+   <div id="forgotPassDialog" style="display:none;">
+      <p><span class="dialog_modal_title lang-passwordReset"></span></p>
+      <div style="clear:both"></div>
+      <p><span id="forgotpass_error_msg" class="dialog_error" style="display:none">&nbsp;</span></p>
+      <div style="clear:both"></div>
+      <p><span class="dialog_label lang-emailAddress langinsert-pre">: </span> <span class="dialog_input"><input type="text" id="resetto" onkeypress="System.keyHandler(event, System.resetPass);" /></span></p>
+      <div style="clear:both"></div>
+      <p>
+         <span class="dialog_links" style="width:190px;" onselectstart="return false;" onmousedown="return false;">
+            <a href="#" class="stdButton lang-reset" id="forgotpass_button" onclick="System.resetPass();return false;" onmouseover="ButtonCtl.hover(this);" onmousedown="ButtonCtl.down(this);" onmouseup="ButtonCtl.normal(this);" onmouseout="ButtonCtl.normal(this);"></a>
+            <a href="#" class="stdButton lang-cancel" onclick="Dialogs.login();return false;" onmouseover="ButtonCtl.hover(this);" onmousedown="ButtonCtl.down(this);" onmouseup="ButtonCtl.normal(this);" onmouseout="ButtonCtl.normal(this);"></a>
+         </span>
+      </p>
+      <div style="clear:both"></div>
+   </div>
+</div>
+<div class="itemList" id="statusList">
+   <a href="#" class="lang-available langinsert-post" onclick="Status.set(0, Languages.get('available'));return false;"><img src="images/online.png" style="border:0;" alt="" title="" />&nbsp;&nbsp;</a>
+   <a href="#" class="lang-friendsOnly langinsert-post" style="border-bottom: 1px solid #bfbcb8;" onclick="Status.set(99, Languages.get('friendsOnly'));return false;"><img src="images/online.png" style="border:0;" alt="" title="" />&nbsp;&nbsp;</a>
+   <a href="#" class="lang-busy langinsert-post" onclick="Status.set(1, Languages.get('busy'));return false;"><img src="images/away.png" style="border:0;" alt="" title="" />&nbsp;&nbsp;</a>
+   <a href="#" class="lang-beBackLater langinsert-post" onclick="Status.set(1, Languages.get('beBackLater'));return false;"><img src="images/away.png" style="border:0;" alt="" title="" />&nbsp;&nbsp;</a>
+   <a href="#" class="lang-away langinsert-post" onclick="Status.set(1, Languages.get('away'));return false;"><img src="images/away.png" style="border:0;" alt="" title="" />&nbsp;&nbsp;</a>
+   <a href="#" class="lang-custom langinsert-post" id="customMessage" style="border-top: 1px solid #bfbcb8;" onclick="Status.customAway();$('statusList').style.display='none';return false;"><img src="images/away.png" style="border:0;" alt="" title="" />&nbsp;&nbsp;</a>
+   <a href="#" class="lang-invisible langinsert-post" style="border-top: 1px solid #bfbcb8;" onclick="Status.set(49, Languages.get('invisible'));return false;"><img src="images/offline.png" style="border:0;" alt="" title="" />&nbsp;&nbsp;</a>
+</div>
+<div class="itemList" id="fontsList">
+   <a href="#" onclick="IM.active.setFont('Arial');return false;">Arial</a>
+   <a href="#" onclick="IM.active.setFont('Comic Sans MS');return false;">Comic Sans MS</a>
+   <a href="#" onclick="IM.active.setFont('Courier New');return false;">Courier New</a>
+   <a href="#" onclick="IM.active.setFont('Garamond');return false;">Garamond</a>
+   <a href="#" onclick="IM.active.setFont('Georgia');return false;">Georgia</a>
+   <a href="#" onclick="IM.active.setFont('Impact');return false;">Impact</a>
+   <a href="#" onclick="IM.active.setFont('Tahoma');return false;">Tahoma</a>
+   <a href="#" onclick="IM.active.setFont('Times New Roman');return false;">Times New Roman</a>
+   <a href="#" onclick="IM.active.setFont('Verdana');return false;">Verdana</a>
+</div>
+<div class="itemList" id="fontSizeList" oncontextmenu="return false;">
+   <a href="#" onclick="IM.active.setFontSize(8);return false;">8</a>
+   <a href="#" onclick="IM.active.setFontSize(10);return false;">10</a>
+   <a href="#" onclick="IM.active.setFontSize(12);return false;">12</a>
+   <a href="#" onclick="IM.active.setFontSize(14);return false;">14</a>
+   <a href="#" onclick="IM.active.setFontSize(16);return false;">16</a>
+   <a href="#" onclick="IM.active.setFontSize(18);return false;">18</a>
+   <a href="#" onclick="IM.active.setFontSize(20);return false;">20</a>
+   <a href="#" onclick="IM.active.setFontSize(22);return false;">22</a>
+   <a href="#" onclick="IM.active.setFontSize(24);return false;">24</a>
+</div>
+<div class="itemList" id="fontColorList" style="cursor: pointer;">
+   <table class="tTable">
+      <tr>
+         <td class="colorItem" style="width:13px;height:13px;border:1px solid #000;background-color:#000000;" onclick="IM.active.setFontColor('#000000');"></td>
+         <td class="colorItem" style="width:13px;height:13px;border:1px solid #000;background-color:#b8b8b8;" onclick="IM.active.setFontColor('#b8b8b8');"></td>
+         <td class="colorItem" style="width:13px;height:13px;border:1px solid #000;background-color:#b4ad3b;" onclick="IM.active.setFontColor('#b4ad3b');"></td>
+         <td class="colorItem" style="width:13px;height:13px;border:1px solid #000;background-color:#bb5c54;" onclick="IM.active.setFontColor('#bb5c54');"></td>
+         <td class="colorItem" style="width:13px;height:13px;border:1px solid #000;background-color:#755a5c;" onclick="IM.active.setFontColor('#755a5c');"></td>
+      </tr>
+      <tr>
+         <td class="colorItem" style="width:13px;height:13px;border:1px solid #000;background-color:#a9b5ef;" onclick="IM.active.setFontColor('#a9b5ef');"></td>
+         <td class="colorItem" style="width:13px;height:13px;border:1px solid #000;background-color:#d65a20;" onclick="IM.active.setFontColor('#d65a20');"></td>
+         <td class="colorItem" style="width:13px;height:13px;border:1px solid #000;background-color:#e39230;" onclick="IM.active.setFontColor('#e39230');"></td>
+         <td class="colorItem" style="width:13px;height:13px;border:1px solid #000;background-color:#a71334;" onclick="IM.active.setFontColor('#a71334');"></td>
+         <td class="colorItem" style="width:13px;height:13px;border:1px solid #000;background-color:#590099;" onclick="IM.active.setFontColor('#590099');"></td>
+      </tr>
+      <tr>
+         <td class="colorItem" style="width:13px;height:13px;border:1px solid #000;background-color:#d40088;" onclick="IM.active.setFontColor('#d40088');"></td>
+         <td class="colorItem" style="width:13px;height:13px;border:1px solid #000;background-color:#0030ac;" onclick="IM.active.setFontColor('#0030ac');"></td>
+         <td class="colorItem" style="width:13px;height:13px;border:1px solid #000;background-color:#676f11;" onclick="IM.active.setFontColor('#676f11');"></td>
+         <td class="colorItem" style="width:13px;height:13px;border:1px solid #000;background-color:#769321;" onclick="IM.active.setFontColor('#769321');"></td>
+         <td class="colorItem" style="width:13px;height:13px;border:1px solid #000;background-color:#3966fe;" onclick="IM.active.setFontColor('#3966fe');"></td>
+      </tr>
+   </table>
+</div>
+<div class="itemList" id="divContext" oncontextmenu="return false;">
+   <a href="#" class="lang-contextGetInfo" onclick="Context.profile();return false;"></a>
+   <a href="#" class="lang-contextIM" onclick="Context.createIM();return false;"></a>
+   <a href="#" id="contextBlock" class="lang-contextBlock" onclick="Context.blockBuddy();return false;"></a>
+   <a href="#" class="lang-contextRemove" onclick="Context.removeBuddy();return false;"></a>
+</div>
+<div id="languageList">
+</div>
+</body>
+</html>

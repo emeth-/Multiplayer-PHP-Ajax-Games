@@ -1,0 +1,272 @@
+body
+{
+padding:0px;
+margin:0px;
+font-family:Arial, Helvetica, sans-serif;
+background-color:#000000;
+}
+.mainContainer
+{
+width:720px;
+margin-left:10%;
+margin-right:10%;
+height:600px;
+}
+.bannerSpot
+{
+background-image:url(http://seanybob.net/gpt/images/banner.jpg);
+background-repeat:no-repeat;
+height:187px;
+width:720px;
+}
+.columnLeft1
+{
+float:left;
+padding-left:10px;
+padding-top:5px;
+width:225px;
+height:225px;
+}
+.columnRight1
+{
+float:left;
+
+}
+.bodyArea
+{
+width:710px;
+background-image:url(http://seanybob.net/gpt/images/whitebodybgn.gif);
+background-repeat:repeat-y;
+margin-left:18px;
+}
+.grayArea
+{
+text-align:center;
+font-size:11px;
+width:710px;
+background-image:url(http://seanybob.net/gpt/images/graybodybgn.gif);
+height:14px;
+background-repeat:repeat-y;
+margin-left:18px;
+}
+.bodyBottom
+{
+width:710px;
+background-image:url(http://seanybob.net/gpt/images/bgbottomn.gif);
+height:4px;
+background-repeat:no-repeat;
+margin-left:18px;
+}
+.welcome
+{
+font-weight: bold;
+text-align:center;
+margin-bottom:5px;
+}
+.welcome a
+{
+font-size:12px;
+color:#FF0000;
+text-decoration:none;
+}
+.welcome a:hover
+{
+text-decoration:underline;
+}
+.regFields
+{
+margin-left:200px;
+}
+.r1
+{
+font-size:12px;
+}
+.middleOfBox
+{
+text-align:center;
+width:450px;
+height:23px;
+background-image:url(http://seanybob.net/gpt/images/tlmidbluebox.gif);
+background-repeat:repeat-x;
+}
+.middleofBoxFont
+{
+color:#FFFFFF;
+font-size:11px;
+padding-top:5px;
+padding-left:5px;
+}
+.leftOfBox
+{
+float:left;
+width:5px;
+height:23px;
+background-image:url(http://seanybob.net/gpt/images/tlblueboxn.gif);
+background-repeat:no-repeat;
+}
+.rightOfBox
+{
+float:right;
+width:5px;
+height:23px;
+background-image:url(http://seanybob.net/gpt/images/trblueboxn.gif);
+background-repeat:no-repeat;
+}
+.middleOfBlueBox
+{
+width:450px;
+background-image:url(http://seanybob.net/gpt/images/midofbluen.gif);
+background-repeat:repeat-y;
+}
+.midstStyle1
+{
+color:#FFFFFF;
+font-size:12px;
+padding-left:5px;
+}
+.bottomOfBlueBox
+{
+background-image:url(http://seanybob.net/gpt/images/bottomn.gif);
+background-repeat:no-repeat;
+height:4px;
+width:450px;
+margin-bottom:10px;
+}
+.goback a { border:1px solid #000; 
+font-size:12px;
+background-color:#CDCDCD;
+color:#theredcolor;
+padding:3px;
+text-display:block;
+text-decoration:none;
+}
+.menubg
+{
+background-image:url(http://seanybob.net/gpt/images/menubutton.jpg);
+background-repeat:repeat-x;
+width:178px;
+height:26px;
+}
+.menubgb
+{
+background-image:url(http://seanybob.net/gpt/images/menubuttonb.jpg);
+background-repeat:no-repeat;
+width:2px;
+display: inline;
+height:26px;
+}
+
+.menu a { 
+font-size:14px;
+color:white;
+font-weight: bold;
+display: inline;
+text-align:left;
+text-decoration:none;
+}
+.mainmenu { 
+text-align:left;
+padding-left:40px;
+}
+.topmenu a { border:1px solid #000; 
+font-size:12px;
+background-color:#062B48;
+color:white;
+font-family: arial;
+padding:3px;
+text-align:center;
+display: block;
+width:81px;
+height:40px;
+text-decoration:none;
+}
+
+table,tr,td { 
+font-family:helvetica, arial, geneva, sans-serif;
+font-size: 12px; 
+}
+textarea { 
+font-family:helvetica, arial, geneva, sans-serif;
+font-size:12px;color: black; 
+}
+.table {
+background-color:#000000;
+word-break:break-all;
+}
+.table a {
+color:#C0C0C0;
+}
+.table3 {
+background-color:#000000;
+}
+.table td {
+background-color:#FFFFFF;
+height:22px;
+}
+.table3 td {
+background-color:#CCCCCC;
+}
+td .alt {
+background-color:#EEEEEE;
+height:22px;
+}
+td .h {
+background-image:url(http://seanybob.net/gpt/images/tablehgrad.png);
+background-repeat:repeat-x;
+font-weight: bold;
+background-color: #D6D6D6;
+}
+.table th {
+font-weight: bold;
+background-color: #1E3E57;
+color:white;
+}
+
+.table td {
+background-color: #062B46;
+color:white;
+}
+
+.table td a {
+color:white;
+}
+
+a:visited,a:active,a:hover,a:link { text-decoration: none; }
+.heading
+{
+font-weight: bold;
+text-align:center;
+padding:5px;
+}
+
+
+.topOfBut
+{
+width:101px;
+height:2px;
+background-image:url(http://seanybob.net/gpt/images/tbut.jpg);
+background-repeat:no-repeat;
+}
+.middleOfBlueBut
+{
+background-image:url(http://seanybob.net/gpt/images/mbut.jpg);
+background-repeat:repeat-y;
+width:101px;
+}
+.midstStyle1but
+{
+color:white;
+font-family: arial;
+text-align:center;
+display: block;
+text-decoration:none;
+color:#FFFFFF;
+font-size:12px;
+}
+.bottomOfBlueBut
+{
+background-image:url(http://seanybob.net/gpt/images/bbut.jpg);
+background-repeat:no-repeat;
+height:2px;
+width:101px;
+}

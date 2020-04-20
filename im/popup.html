@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title></title>
+<script src="js/prototype.js" type="text/javascript"></script>
+<script src="js/utils.js" type="text/javascript"></script>
+<script src="js/window.js" type="text/javascript"></script>
+<script src="js/im.basic.js" type="text/javascript"></script>
+<script src="js/popup.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+///////////////////////////////////
+//          ajax im 3.4          //
+//    AJAX Instant Messenger     //
+//   Copyright (c) 2006-2008     //
+//    http://www.ajaxim.com/     //
+//   Do not remove this notice   //
+///////////////////////////////////
+
+document.title = self.opener.newWin;
+
+var name;
+var winName;
+var defaultTitle = document.title;
+var blinkerTimer;
+var titlebarBlinker;
+var IM;
+var IMWindow;
+
+function trim(text) {
+   if(text == null) return null;
+   return text.replace(/^[ \t]+|[ \t]+$/g, "");
+}
+
+function create() {
+   var ref = ['audioNotify', 'soundManager', 'pingTo', 'user', 'pass', 'smilies', 'buttonHover', 'buttonDown', 'buttonNormal', 'scrollToBottom', 'theme', 'Languages', 'Status', 'useLingo', 'lingoPunction', 'timestamp'];
+   
+   for(var i=0; i<ref.length; i++) {
+      window[ref[i]] = window.opener[ref[i]];
+   }
+
+   name = self.opener.newWin;
+   winName = self.opener.IM.windows[self.opener.newWin].getId();
+   if(trim(name).length == 0)
+      self.close();
+      
+   var loadCSS = document.createElement("link");
+   loadCSS.setAttribute("rel", "stylesheet")
+   loadCSS.setAttribute("type", "text/css")
+   loadCSS.setAttribute("href", 'themes/' + theme + '/style.css')
+   if (typeof loadCSS != "undefined")
+     document.getElementsByTagName("head")[0].appendChild(loadCSS);
+
+   var getEmoteHTML = new XHConn();
+   getEmoteHTML.connect('themes/' + theme +'/emoticons/emoticons.html', 'GET', '', function(xh) {
+      document.body.innerHTML += xh.responseText;
+   });
+
+   Object.extend(IM, {
+      windows: {},
+      create: function(name, imTitle) {
+         this.windows[name] = new IMWindow(winName, {className: "dialog", width: 320, height: 335});
+
+         this.windows[name].getId = function() { return winName; };
+         
+         this.windows[name].setUsername(name);
+      }
+   });
+
+   IM.create(name, name);
+
+   var win = document.createElement('div');
+   win.id = winName;
+   document.body.appendChild(win);
+
+   win.innerHTML += self.opener.IM.windows[name].getContent().innerHTML;
+
+   if ($(winName+'_userFuncs'))
+      $(winName+'_userFuncs').remove();
+
+   self.opener.newWin = '';
+   self.opener.newWinRcvd = '';
+   window.onresize = IM.handleResize;
+   IM.handleResize(null);
+}
+
+function titlebarBlink(name, message, alter) {
+   if(titlebarBlinker == false) {
+      document.title = defaultTitle;
+      return;
+   }
+   
+   if(alter == 0) {
+      document.title = name + '!';
+      blinkerTimer = setTimeout("titlebarBlink('"+name+"', '"+message+"', 1)", 1000);
+   } else if(alter == 1) {
+      document.title = '"' + message.substring(0, 10) + (message.length > 10 ? '...' : '') + '"';
+      blinkerTimer = setTimeout("titlebarBlink('"+name+"', '"+message+"', 2)", 1000);
+   } else if(alter == 2) {
+      document.title = defaultTitle;
+      blinkerTimer = setTimeout("titlebarBlink('"+name+"', '"+message+"', 0)", 1000);
+   }
+}
+
+function blinkerOn(onoff) {
+   if(onoff == true)
+      titlebarBlinker = true;
+   else
+      titlebarBlinker = false;
+}
+
+function browserWidth() {
+   if (self.innerWidth) {
+      return self.innerWidth;
+   } else if (document.documentElement && document.documentElement.clientWidth) {
+      return document.documentElement.clientWidth;
+   } else if (document.body) {
+      return document.body.clientWidth;
+   }
+   return 630;
+}
+
+function browserHeight() {
+   if (self.innerWidth) {
+      return self.innerHeight;
+   } else if (document.documentElement && document.documentElement.clientWidth) {
+      return document.documentElement.clientHeight;
+   } else if (document.body) {
+      return document.body.clientHeight;
+   }
+   return 470;
+}
+
+window.onunload = function() {
+   self.opener.IM.windows[name].detached = false;
+   self.opener.$(self.opener.IM.windows[name].getId() + '_rcvd').innerHTML = $(IM.windows[name].getId() + '_rcvd').innerHTML;
+   self.opener.IM.windows[name].show();
+}
+
+window.onload = function() {
+   create();
+};
+</script>
+
+<style type="text/css">
+body {
+   overflow:hidden;
+   color: #000;
+   font-family: Tahoma, Arial, sans-serif;
+   font-size: 10px;
+   background-color:#ebe6e1;
+   background-image: none;
+   padding: 0;
+   margin: 0;
+}
+</style>
+</head>
+
+<body class="dialog_content">
+<div class="itemList" id="fontsList">
+   <a href="#" onclick="IM.active.setFont('Tahoma');return false;">Tahoma</a>
+   <a href="#" onclick="IM.active.setFont('Verdana');return false;">Verdana</a>
+   <a href="#" onclick="IM.active.setFont('Georgia');return false;">Georgia</a>
+   <a href="#" onclick="IM.active.setFont('Garamond');return false;">Garamond</a>
+   <a href="#" onclick="IM.active.setFont('Arial');return false;">Arial</a>
+   <a href="#" onclick="IM.active.setFont('Times New Roman');return false;">Times New Roman</a>
+   <a href="#" onclick="IM.active.setFont('Courier New');return false;">Courier News</a>
+</div>
+<div class="itemList" id="fontSizeList">
+   <a href="#" onclick="IM.active.setFontSize(8);return false;">8</a>
+   <a href="#" onclick="IM.active.setFontSize(10);return false;">10</a>
+   <a href="#" onclick="IM.active.setFontSize(12);return false;">12</a>
+   <a href="#" onclick="IM.active.setFontSize(14);return false;">14</a>
+   <a href="#" onclick="IM.active.setFontSize(16);return false;">16</a>
+   <a href="#" onclick="IM.active.setFontSize(18);return false;">18</a>
+   <a href="#" onclick="IM.active.setFontSize(20);return false;">20</a>
+   <a href="#" onclick="IM.active.setFontSize(22);return false;">22</a>
+   <a href="#" onclick="IM.active.setFontSize(24);return false;">24</a>
+</div>
+<div class="itemList" id="fontColorList">
+   <table>
+      <tr>
+         <td class="colorItem" style="width:13px;height:13px;border:1px solid #000;background-color:#000000;" onclick="IM.active.setFontColor('#000000');"></td>
+         <td class="colorItem" style="width:13px;height:13px;border:1px solid #000;background-color:#b8b8b8;" onclick="IM.active.setFontColor('#b8b8b8');"></td>
+         <td class="colorItem" style="width:13px;height:13px;border:1px solid #000;background-color:#b4ad3b;" onclick="IM.active.setFontColor('#b4ad3b');"></td>
+         <td class="colorItem" style="width:13px;height:13px;border:1px solid #000;background-color:#bb5c54;" onclick="IM.active.setFontColor('#bb5c54');"></td>
+         <td class="colorItem" style="width:13px;height:13px;border:1px solid #000;background-color:#755a5c;" onclick="IM.active.setFontColor('#755a5c');"></td>
+      </tr>
+      <tr>
+         <td class="colorItem" style="width:13px;height:13px;border:1px solid #000;background-color:#a9b5ef;" onclick="IM.active.setFontColor('#a9b5ef');"></td>
+         <td class="colorItem" style="width:13px;height:13px;border:1px solid #000;background-color:#d65a20;" onclick="IM.active.setFontColor('#d65a20');"></td>
+         <td class="colorItem" style="width:13px;height:13px;border:1px solid #000;background-color:#e39230;" onclick="IM.active.setFontColor('#e39230');"></td>
+         <td class="colorItem" style="width:13px;height:13px;border:1px solid #000;background-color:#a71334;" onclick="IM.active.setFontColor('#a71334');"></td>
+         <td class="colorItem" style="width:13px;height:13px;border:1px solid #000;background-color:#a68978;" onclick="IM.active.setFontColor('#a68978');"></td>
+      </tr>
+      <tr>
+         <td class="colorItem" style="width:13px;height:13px;border:1px solid #000;background-color:#600c1f;" onclick="IM.active.setFontColor('#600c1f');"></td>
+         <td class="colorItem" style="width:13px;height:13px;border:1px solid #000;background-color:#491130;" onclick="IM.active.setFontColor('#491130');"></td>
+         <td class="colorItem" style="width:13px;height:13px;border:1px solid #000;background-color:#676f11;" onclick="IM.active.setFontColor('#676f11');"></td>
+         <td class="colorItem" style="width:13px;height:13px;border:1px solid #000;background-color:#769321;" onclick="IM.active.setFontColor('#769321');"></td>
+         <td class="colorItem" style="width:13px;height:13px;border:1px solid #000;background-color:#3966fe;" onclick="IM.active.setFontColor('#3966fe');"></td>
+      </tr>
+   </table>
+</div>
+</body>
+</html>
